@@ -4,6 +4,10 @@ const { config } = require("dotenv");
 const cors = require("cors");
 const ProductModel = require("./models/product");
 
+
+
+
+
 config();
 
 const app = express();
@@ -14,11 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// app.post("/createProducts", (req, res) => {
-//   ProductModel.create(req, res)
-//     .then((products) => res.json(products))
-//     .catch((err) => res.json(err));
-// });
+
 app.post("/createProducts", (req, res) => {
   ProductModel.create(req.body)
     .then((products) => res.json(products))
