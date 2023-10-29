@@ -18,6 +18,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:3001'
+];
+app.use(
+  cors({
+      origin: "http://localhost:3000",
+      // origin: "https://64b7facf8da5311c90bc935e--grand-tanuki-76c5f9.netlify.app",
+              methods: ['GET', 'POST', 'PUT', 'DELETE'],
+      credentials: true,
+  })
+);
+
 
 app.post("/createProducts", (req, res) => {
   ProductModel.create(req.body)
