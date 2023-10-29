@@ -24,12 +24,12 @@ const allowedOrigins = [
 ];
 app.use(
   cors({
-      origin: "http://localhost:5173",
-      // origin: "https://64b7facf8da5311c90bc935e--grand-tanuki-76c5f9.netlify.app",
-              methods: ['GET', 'POST', 'PUT', 'DELETE'],
-      credentials: true,
+    origin: ["http://localhost:5173"], // Update this to include the origins you want to allow
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
   })
 );
+
 
 
 app.post("/createProducts", (req, res) => {
